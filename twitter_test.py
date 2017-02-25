@@ -1,14 +1,12 @@
-import twitter
+#import twitter
+from twython import Twython
 
 with open('credentials.config', 'r') as f:
-    consumer_key = f.readline()
-    consumer_secret = f.readline()
-    access_token_key = f.readline()
-    access_token_secret = f.readline()
+    all_credentials = f.readlines()
 
-api = twitter.Api(consumer_key=consumer_key, 
-                consumer_secret=consumer_secret,
-                access_token_key=access_token_key,
-                access_token_secret=access_token_secret)
-print "success"
+twitter = Twython(all_credentials[0][:-1], all_credentials[1][:-1], all_credentials[2][:-1], all_credentials[3][:-1])
+twitter.verify_credentials()
+print "successfully verified credentials"
+
+
 
