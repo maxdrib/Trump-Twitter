@@ -2,6 +2,7 @@
 from twython import Twython
 import json
 from nltk.corpus import stopwords
+import re
 
 class Get_Tweets(object):
 
@@ -20,7 +21,7 @@ class Get_Tweets(object):
 
 
         # Make the API call
-        tweets = twitter.get_user_timeline(screen_name='realDonaldTrump', count=200, since_id=since_id)
+        tweets = twitter.get_user_timeline(screen_name='realDonaldTrump', count=200)#, since_id=since_id)
 
         # If nothing new, exit program
         if len(tweets)==0:
@@ -34,12 +35,13 @@ class Get_Tweets(object):
         # Iterate over tweets
         with open('recent_tweets', 'w+') as f:
             for tweet in tweets:
-                tweet = tweet['text'].lower().translate(' ', ",;:-+").translate("", "'/\"").replace("..."," ")
-                to_post = tweet['text'].encode('utf-8')+'\n'
-                to_post = [word for word in to_post.split() if word not in stopwords.words('english')]
-                f.write(to_post.join(' '))
 
-if __name__=="__main__":
+                to_post = tweet['text'].encode('utf-8')
+                to_post = filter(None, re.split("[,! \\-?:]",to_post.lower().replace('...', ' ')))
+                to_post = [word for word in to_post if word not in stopwords.words('english')]
+                f.write(' '.join(to_post)+'\n')
+
+if __name__ == '__main__':
     # Check for id of last tweet read
     with open('last_check_info.txt', 'r') as o:
         since_id = o.readline() 
