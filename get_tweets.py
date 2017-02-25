@@ -32,13 +32,13 @@ with open('last_check_info.txt', 'w') as o:
     
 # Iterate over tweets
 for tweet in tweets:
-    tweet = tweet.lower().translate(' ', ",;:'-\"+").replace("..."," ")
+    tweet = tweet.lower().translate(' ', ",;:-+").translate("", "'/\"").replace("..."," ")
     print "do things"
 
 # Write new recent tweets to file
 with open('recent_tweets', 'w+') as f:
     for tweet in tweets:
-        tweet = tweet.lower().translate(' ', ",;:'\"-+").replace("..."," ")
+        tweet = tweet.lower().translate(' ', ",;:-+").translate("", "'/\"").replace("..."," ")
         to_post = tweet['text'].encode('utf-8').lower()+'\n'
         f.write(to_post)
 

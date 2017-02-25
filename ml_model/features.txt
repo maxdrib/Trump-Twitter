@@ -1,0 +1,7 @@
+1. existence of fake keyword
+2. existence of family keyword
+3. existence of strong negative keyword
+4. existence of company keyword
+5. existence of strong positive keyword
+6. existence of goverment keyword
+7. 
