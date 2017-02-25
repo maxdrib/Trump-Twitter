@@ -1,0 +1,7 @@
+cnn
+fake
+abc
+nbc
+poll
+cbs
+nytimes
