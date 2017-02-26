@@ -5,13 +5,13 @@ import csv
 all_credentials = []
 with open('credentials.config', 'r') as f:
     all_credentials = f.readlines()
-consumer_key = all_credentials[0]
-consumer_secret = all_credentials[1]
-access_key = all_credentials[2]
-access_secret = all_credentials[3]
-
+consumer_key = all_credentials[0][:-1]
+consumer_secret = all_credentials[1][:-1]
+access_key = all_credentials[2][:-1]
+access_secret = all_credentials[3][:-1]
 
 def get_all_tweets(screen_name):
+   
     #Twitter only allows access to a users most recent 3240 tweets with this method
     
     #authorize twitter, initialize tweepy
@@ -47,12 +47,11 @@ def get_all_tweets(screen_name):
         print "...%s tweets downloaded so far" % (len(alltweets))
     
     #transform the tweepy tweets into a 2D array that will populate the csv 
-    outtweets = [[tweet.text.encode("utf-8")] for tweet in alltweets]
+    outtweets = [[tweet.created_at, ' '.join(tweet.text.encode("utf-8").split('\n'))] for tweet in alltweets]
     
     #write the csv  
-    with open('%s_tweets.csv' % screen_name, 'wb') as f:
+    with open('%s_tweets.csv' % screen_name, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(["text"])
         writer.writerows(outtweets)
     
     pass

@@ -27,11 +27,14 @@ class Make_Features(object):
         self.data = []
         tweet_idx = 0
         for tweet in self.tweets:
+            word_list = tweet.split()
+            date = word_list[:6]
+            text = word_list[6:]
             instance_vect = np.zeros(self.numKeywords+1)
             feature_index = 0
             for filename in self.keywords:
                 for word in filename:
-                    if word[:-1] in tweet:
+                    if word[:-1] in text:
                         instance_vect[feature_index] = 1
                     feature_index +=1
             self.data.append(instance_vect)
