@@ -1,4 +1,3 @@
-ompany
 abbott laboratories
 abbvie
 accenture plc
@@ -22,8 +21,8 @@ allergan plc
 alliance data systems
 alliant
 allstate
-alphabet class a
-alphabet class c
+alphabet class
+alphabet class
 altria group
 amazon.com
 ameren
@@ -31,13 +30,13 @@ american airlines group
 american electric power
 american express
 american international group,
-american tower a
+american tower
 american water works
 ameriprise financial
 amerisourcebergen
 ametek
 amgen
-amphenol a
+amphenol
 anadarko petroleum
 analog devices,
 anthem
@@ -112,7 +111,7 @@ cms
 coach
 cognizant technology solutions
 colgate-palmolive
-comcast a
+comcast
 comerica
 conagra foods
 concho resources
@@ -261,7 +260,7 @@ kla-tencor
 kohl's
 kraft heinz
 kroger
-l brands
+brands
 l-3 communications holdings
 laboratory america holding
 lam research
@@ -269,7 +268,7 @@ legg mason
 leggett platt
 lennar
 leucadia national
-level 3 communications
+level communications
 lilly (eli)
 lincoln national
 linear technology
@@ -319,8 +318,8 @@ netflix
 newell rubbermaid
 newfield exploration
 newmont mining (hldg. co.)
-news class a
-news class b
+news class
+news class
 nextera
 nielsen holdings
 nike
@@ -446,8 +445,8 @@ tractor supply
 transdigm group
 transocean
 tripadvisor
-twenty-first century fox class a
-twenty-first century fox class b
+twenty-first century fox class
+twenty-first century fox class
 tyco international
 tyson foods
 u.s. bancorp

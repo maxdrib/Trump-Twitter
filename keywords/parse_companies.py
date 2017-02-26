@@ -10,7 +10,7 @@ for company in companies:
     company = company[:-1]
     company_words = company.split()
     new_company = [word for word in company_words if word not in useless_words]
-    new_companies.append([word.lower() for word in new_company])
+    new_companies.append([word.lower() for word in new_company if len(word)>1])
     
 
 print new_companies

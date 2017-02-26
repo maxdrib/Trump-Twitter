@@ -39,11 +39,11 @@ class Get_Tweets(object):
         # Iterate over tweets
         with open('recent_tweets', 'w') as f:
             for tweet in tweets:
-                print tweet 
+                #print tweet 
                 tweet = tweet.split(',', 1)
                 date = tweet[0]
                 to_post = tweet[1]
-                to_post = filter(None, re.split("[,\"!.; \\-?:]",to_post.lower().replace('...', ' ')))
+                to_post = filter(None, re.split("@[,\"!.; \\-?:]",to_post.lower().replace('...', ' ')))
                 to_post = [word for word in to_post if word not in stopwords.words('english')]
                 f.write(date+','+' '.join(to_post))
 
