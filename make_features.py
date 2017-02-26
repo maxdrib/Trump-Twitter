@@ -28,8 +28,8 @@ class Make_Features(object):
         tweet_idx = 0
         for tweet in self.tweets:
             word_list = tweet.split()
-            date = word_list[:6]
-            text = word_list[6:]
+            date = word_list[0]
+            text = word_list[1]
             instance_vect = np.zeros(self.numKeywords+1)
             feature_index = 0
             for filename in self.keywords:
@@ -39,9 +39,17 @@ class Make_Features(object):
                     feature_index +=1
             self.data.append(instance_vect)
             tweet_idx += 1
+            #print date, instance_vect
+
+    def sum_features(self):
+        sum_vect = np.zeros(self.numKeywords+1)
+        for i in self.data:
+            sum_vect += i
+        print sum_vect
 
 if __name__=="__main__":
     make_features = Make_Features()
     print sys.argv[1]
     make_features.read_tweets(sys.argv[1])
     make_features.generate_features()
+    make_features.sum_features()

@@ -4,4 +4,3 @@ official
 legislation
 senator
 whitehouse
-
