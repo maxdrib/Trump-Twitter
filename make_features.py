@@ -7,16 +7,16 @@ class Make_Features(object):
     def __init__(self):
         keyword_files = ['fake_news.txt', 'finance.txt', 'negative.txt', 
                             'family.txt', 'government.txt', 'positive.txt']
-        self.keywords = [None for _ in range(len(keyword_files))]
+        self.keywords = []
         file_number = 0
         self.numKeywords = 0
         for filename in keyword_files:
             with open(keywords_directory+filename, 'r') as f:
                 all_text = f.readlines()    
-            self.keywords[file_number] = all_text
+            self.keywords.append(all_text)
             print self.keywords[file_number]
-            file_number += 1
             self.numKeywords += len(list(self.keywords[file_number]))
+            file_number += 1
 
     def read_tweets(self, filepath):
         with open(filepath, 'r') as f:
@@ -24,7 +24,7 @@ class Make_Features(object):
         #print self.tweets
 
     def generate_features(self):
-        self.data = [None for _ in range(len(self.tweets))]
+        self.data = []
         tweet_idx = 0
         for tweet in self.tweets:
             instance_vect = np.zeros(self.numKeywords+1)
@@ -34,9 +34,8 @@ class Make_Features(object):
                     if word[:-1] in tweet:
                         instance_vect[feature_index] = 1
                     feature_index +=1
-            self.data[tweet_idx] = instance_vect
+            self.data.append(instance_vect)
             tweet_idx += 1
-        print self.data
 
 if __name__=="__main__":
     make_features = Make_Features()

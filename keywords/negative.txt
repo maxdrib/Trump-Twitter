@@ -6,7 +6,7 @@ horrible
 awful
 evil
 mess
-no
+not
 badly
 fail
 failing

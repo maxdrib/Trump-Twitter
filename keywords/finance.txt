@@ -6,4 +6,3 @@ market
 S&P
 debt
 financial
-

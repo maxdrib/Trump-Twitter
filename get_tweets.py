@@ -31,15 +31,17 @@ class Get_Tweets(object):
         # Otherwise, save id of most recent tweet
         with open('last_check_info.txt', 'w') as o:
             o.write(tweets[0]['id_str'])
-            
-        # Iterate over tweets
-        with open('recent_tweets', 'w+') as f:
-            for tweet in tweets:
 
-                to_post = tweet['text'].encode('utf-8')
-                to_post = filter(None, re.split("[,! \\-?:]",to_post.lower().replace('...', ' ')))
+        with open('realDonaldTrump_tweets.csv', 'r') as f:
+            tweets = f.readlines()
+       
+        # Iterate over tweets
+        with open('recent_tweets', 'w') as f:
+            for tweet in tweets:
+                to_post = tweet
+                to_post = filter(None, re.split("[,\"!.; \\-?:]",to_post.lower().replace('...', ' ')))
                 to_post = [word for word in to_post if word not in stopwords.words('english')]
-                f.write(' '.join(to_post)+'\n')
+                f.write(' '.join(to_post))
 
 if __name__ == '__main__':
     # Check for id of last tweet read
